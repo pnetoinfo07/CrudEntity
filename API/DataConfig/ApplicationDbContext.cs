@@ -14,6 +14,7 @@ namespace Infraestrutura.Data
             : base(options) { }
 
         public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
 
     }
 }

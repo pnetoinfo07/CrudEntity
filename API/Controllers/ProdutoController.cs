@@ -6,19 +6,19 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PessoaController : ControllerBase
+    public class ProdutoController : ControllerBase
     {
-        private readonly IPessoaRepository _repository;
-        public PessoaController(IPessoaRepository repository)
+        private readonly IProdutoRepository _repository;
+        public ProdutoController(IProdutoRepository repository)
         {
             _repository = repository;
         }
         [HttpPost]
-        public IActionResult Adicionar(Pessoa pessoa)
+        public IActionResult Adicionar(Produto produto)
         {
             try
             {
-                _repository.Adicionar(pessoa);
+                _repository.Adicionar(produto);
                 return Ok();
             }
             catch (Exception e)
@@ -27,7 +27,7 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        public ActionResult<List<Pessoa>> List()
+        public ActionResult<List<Produto>> List()
         {
             try
             {
@@ -39,7 +39,7 @@ namespace API.Controllers
             }
         }
         [HttpPut]
-        public  ActionResult<List<Pessoa>> Editar(Pessoa p)
+        public  ActionResult<List<Produto>> Editar(Produto p)
         {
             try
             {

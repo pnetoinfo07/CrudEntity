@@ -15,6 +15,7 @@ namespace Infraestrutura.Data
 
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Cidade> Cidades { get; set; }
 
     }
 }

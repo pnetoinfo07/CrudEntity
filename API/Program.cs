@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(variavel =>
     variavel.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IPessoaRepository,PessoaRepository>(); 
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>(); 
+builder.Services.AddScoped<ICidadeRepository, CidadeRepository>(); 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

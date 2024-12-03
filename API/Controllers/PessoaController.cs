@@ -1,5 +1,7 @@
-﻿using CrudEntity;
+﻿using AutoMapper;
+using CrudEntity;
 using Infraestrutura;
+using Infraestrutura.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -9,9 +11,11 @@ namespace API.Controllers
     public class PessoaController : ControllerBase
     {
         private readonly IPessoaRepository _repository;
-        public PessoaController(IPessoaRepository repository)
+        private readonly IMapper _mapper;
+        public PessoaController(IPessoaRepository repository,IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
         [HttpPost]
         public IActionResult Adicionar(Pessoa pessoa)
@@ -31,7 +35,8 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(_repository.Listar());
+                List<ReadPessoaDTO> pessoaDTO = _mapper.Map<List<ReadPessoaDTO>>(_repository.Listar());
+                return Ok(pessoaDTO);
             }
             catch (Exception e)
             {

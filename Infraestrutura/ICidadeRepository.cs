@@ -7,10 +7,6 @@ using System.Threading.Tasks;
 
 namespace Infraestrutura;
 
-public interface ICidadeRepository
+public interface ICidadeRepository:IBaseRepository<Cidade>
 {
-    void Adicionar(Cidade cidade);
-    List<Cidade> Listar();
-    void Editar(Cidade cidade);
-    void Remover(int id);
 }
